@@ -1,0 +1,40 @@
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    padding: 1em;
+  }
+  
+  section {
+    padding: 1em 0;
+  }
+  
+  table {
+    border-collapse: collapse;
+  }
+  
+  th {
+    padding: 0 0.5em;
+  }
+  
+  tr {
+    border-bottom: solid 1px #000000;
+    line-height: 1.75;
+  }
+  
+  td {
+    text-align: right;
+    padding: 0 0.5em;
+    background-color: #debab9;
+  }
+  
+  .style {
+    background-color: #ffffff;
+  }
+  .styles {
+    background-color: #979797;
+  }
+  .low {
+    background-color: #a9a570;
+  }
+  .high {
+    background-color: #ad5d5d;
+  }
