@@ -30,14 +30,22 @@ d3.csv("../../data/homework-hours.csv").then(data => {
       .join("tr");
   
     // cells
+    // pattern = cells with slash
+    regex = /\//
     rows
       .selectAll("td")
       .data(d => Object.values(d))
       .join("td")
-      // update the below logic to apply to your dataset
-      
-      .attr("class", d => +d < 3 ? 'low' : 'high')
-      .append("class", d => +d > 3 ? 'high' : 'low')
-      .text(d => d);
+        // update the below logic to apply to your dataset
+      //.attr("CSS style rule", function(data) { 
+      .attr("class", function(d) {
+        if (d.match(regex)) {
+          return 'date_f'
+        } else if (d > 2) {
+          return 'high'
+        } else if (d < 3) {
+          return 'low'
+        }
+      })
   });
   
