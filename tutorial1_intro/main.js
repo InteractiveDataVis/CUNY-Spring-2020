@@ -30,14 +30,14 @@ d3.csv("../../data/homework-hours.csv").then(data => {
       .join("tr");
   
     // cells
-    //pattern = cells with slash
+    // pattern = cells with slash
     regex = /\//
     rows
       .selectAll("td")
       .data(d => Object.values(d))
       .join("td")
         // update the below logic to apply to your dataset
-      //class = CSS style rule
+      // class = CSS style rule
       .attr("class", function(d) {
         if (d.match(regex)) {
           return 'date_f'
