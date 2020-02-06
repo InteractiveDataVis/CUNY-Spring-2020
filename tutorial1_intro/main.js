@@ -12,7 +12,7 @@ d3.csv("../../data/homework-hours.csv").then(data => {
       .append("tr")
       .append("th")
       .attr("colspan", "7")
-      .text("Week One Results in Hours");
+      .text("Week One Results");
   
     thead
       .append("tr")
@@ -29,23 +29,14 @@ d3.csv("../../data/homework-hours.csv").then(data => {
       .data(data)
       .join("tr");
   
-    // cells
-    // pattern = cells with slash
-    regex = /\//
+      
     rows
       .selectAll("td")
       .data(d => Object.values(d))
       .join("td")
-        // update the below logic to apply to your dataset
-      // class = CSS style rule
-      .attr("class", function(d) {
-        if (d.match(regex)) {
-          return 'date_f'
-        } else if (d > 2) {
-          return 'high'
-        } else if (d < 3) {
-          return 'low'
-        }
-      })
-  });
-  
+      .text(d => d)
+      .attr("class", function (d) { 
+        if (d < 3) {return 'low'}
+        else if (d > 2) {return 'high'}
+        else {return 'date_f'} ;
+},)}) ;
