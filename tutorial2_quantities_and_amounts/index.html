@@ -1,12 +1,30 @@
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8">
-    <title>Interactive Data Visualization Tutorial</title>
+
+    <!-- this is the title that goes in the browser tab name  -->
+    <title>Third Eye Throwbacks Sales</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
   </head>
-  <body>
-    Welcome to Interactive Data Visualization Tutorials
+  <body style="background-color:white;">
+    <header>
+      <picture>
+        <img src="../Images/Thirdeye-logo.png" alt="Thirdeye-logo" class="center">
+      </picture>
+      <h1 align="center">Third Eye Throwbacks</h1>
+      <h2 align="center">January Sales By Item</h2>
+    </header>
+
+    <!-- all we need is an element to select -->
+    <div id="d3-container"> </div>
+
+    <!-- this is the line that loads in d3 -->
     <script src="../lib/d3.js"></script>
-    <script src="main.js"></script>
+    <!-- this is the line that loads in the main js script -->
+    <script src="./main.js"></script>
+    <h6><small>Data Source: Quinn Bolewicki | Operations Manager at Third Eye Throwbacks</small></h6>
   </body>
 </html>

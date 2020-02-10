@@ -1,0 +1,22 @@
+body {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: x-large;
+    padding: 1em 3em;
+  }
+  
+  .label {
+    fill: whitesmoke;
+    text-anchor: middle;
+    font-size: small;
+  }
+  
+  .axis {
+    font-size: 16px;
+    color: black;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+  }
