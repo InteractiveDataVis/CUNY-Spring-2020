@@ -44,6 +44,7 @@ d3.csv("../data/ThirdEyeData_homework2.csv", d3.autoType).then(data => {
       .attr("height", yScale.bandwidth())
       .attr("width", d => width - margin.left - xScale(d.Items_sold))
       .attr("transform", `translate(200, ${height - margin.bottom, margin.top})`)
+      .attr("fill", "#a86487")
 
   // append text
     const text = svg
