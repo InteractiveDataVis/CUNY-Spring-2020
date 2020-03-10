@@ -23,7 +23,7 @@ class Table {
     const logScale = d3
       .scaleLog()
       .domain(d3.extent(countryData, ([country, total]) => total))
-      .range([0.5, 1]);
+      .range([0.5, 1]); // to use only the darker half of the color scale
 
     // use that logarithmic scale in our color interpolator
     this.colorScale = d3.scaleSequential(d => d3.interpolateBuPu(logScale(d)));
