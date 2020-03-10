@@ -24,7 +24,7 @@ d3.csv(
         "Country/Region": country,
         Lat: lat,
         Long: long,
-        ...days // destructures everything that is left into a variable called 'years'
+        ...days // destructures everything that is left into a variable called 'days'
       } = d;
       return {
         province,
@@ -43,20 +43,19 @@ d3.csv(
   });
 
 function init() {
-  table.init(state, setState);
-  graph.init(state, setState);
-  update();
+  table.init(state, setGlobalState);
+  graph.init(state, setGlobalState);
+  draw();
 }
 
-function update(prevState) {
-  table.update(state);
-  graph.update(state);
+function draw() {
+  table.draw(state);
+  graph.draw(state);
 }
 
 // UTILITY FUNCTION: state updating function that we pass to our components so that they are able to update our global state object
-function setState(nextState) {
-  const prevState = state;
-  state = Object.assign({}, state, nextState);
+function setGlobalState(nextState) {
+  state = { ...state, ...nextState };
   console.log("new state:", state);
-  update(prevState);
+  draw();
 }

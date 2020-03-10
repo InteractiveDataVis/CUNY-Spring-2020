@@ -5,10 +5,7 @@ class Table {
   table;
   tableRows;
 
-  init(state, setState) {
-    // save our global update function to this component so we can use it from within
-    this.setState = setState;
-
+  init(state, setGlobalState) {
     // aggregate totals per country
     // creates an array where of rows such as [country, value]
     const countryData = d3
@@ -53,12 +50,12 @@ class Table {
       .join("td")
       .text(d => d);
 
-    this.tableRows.on("click", ([country, value]) =>
-      setState({ selectedCountry: country })
-    );
+    this.tableRows.on("click", ([country, value]) => {
+      setGlobalState({ selectedCountry: country });
+    });
   }
 
-  update(state) {
+  draw(state) {
     console.log("now I am drawing my table");
 
     // console.log('d3.selectAll("tr")', d3.selectAll("tr"));
