@@ -4,15 +4,33 @@ body {
   padding: 1em 3em;
 }
 
-.tooltip {
-  display: block;
-  height: fit-content;
-  background-color: white;
-  opacity: 0.8;
-  pointer-events: none;
-  padding: 5px;
+#table {
+  width: 300px;
+}
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-bottom: 1px solid white;
 }
 
-path.state {
-  stroke: black;
+tbody {
+  width: 100%;
+  display: block;
+  height: 80vh;
+  overflow: scroll;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5em;
+  cursor: pointer;
+  font-weight: lighter;
+  text-transform: capitalize;
+}
+
+tr:hover {
+  font-weight: 900;
 }
