@@ -42,13 +42,14 @@ function init() {
     .attr("height", height);
 
   const uniqueGenres = [...new Set(state.data.map(d => d.genre))];
+
   const colorScale = d3
     .scaleOrdinal()
     .domain(uniqueGenres)
     .range(d3.schemeSet3);
 
   const rolledUp = d3.rollups(
-    state.data,
+    state.data, // array data
     v => ({ count: v.length, movies: v }), // reduce function,
     d => d.genre,
     d => d.type,
@@ -60,9 +61,11 @@ function init() {
   // groups the data by genre, type and rating
   // make hierarchy
   const root = d3
-    .hierarchy([null, rolledUp], ([key, values]) => values) // children accessor, tell it to grab the second element
+    .hierarchy([null, rolledUp], d => d[1]) // children accessor, tell it to grab the second element
     .sum(([key, values]) => values.count) // sets the 'value' of each level
     .sort((a, b) => b.value - a.value);
+
+  console.log(root);
 
   // make treemap layout generator
   const tree = d3
@@ -74,7 +77,7 @@ function init() {
   // call our generator on our root hierarchy node
   tree(root); // creates our coordinates and dimensions based on the heirarchy and tiling algorithm
 
-  console.log(root);
+  // console.log(root);
 
   // create g for each leaf
   const leaf = svg
@@ -90,7 +93,7 @@ function init() {
     .attr("width", d => d.x1 - d.x0)
     .attr("height", d => d.y1 - d.y0)
     .on("mouseover", d => {
-      console.log("d", d);
+      // console.log("d", d);
       state.hover = {
         translate: [
           // center tooltip in rect

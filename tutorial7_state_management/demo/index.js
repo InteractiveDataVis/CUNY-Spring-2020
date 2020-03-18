@@ -2,9 +2,10 @@
 import { Table } from "./Table.js";
 import { Graph } from "./Graph.js";
 
-// initialize components so that we can use them in the future
-const table = new Table();
-const graph = new Graph();
+// initialize components
+// (since we don't have the data or setState function yet, we only initialize the component names)
+let table;
+let graph;
 
 // global state
 let state = {
@@ -43,8 +44,8 @@ d3.csv(
   });
 
 function init() {
-  table.init(state, setGlobalState);
-  graph.init(state, setGlobalState);
+  table = new Table(state, setGlobalState);
+  graph = new Graph(state, setGlobalState);
   draw();
 }
 

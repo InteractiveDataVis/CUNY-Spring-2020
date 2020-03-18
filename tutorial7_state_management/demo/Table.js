@@ -5,7 +5,7 @@ class Table {
   table;
   tableRows;
 
-  init(state, setGlobalState) {
+  constructor(state, setGlobalState) {
     // aggregate totals per country
     // creates an array where of rows such as [country, value]
     const countryData = d3
@@ -18,7 +18,7 @@ class Table {
 
     // first map our values to a logarithmic scale
     const logScale = d3
-      .scaleLog()
+      .scaleSymlog() // like a log scale, but can handle a 0 in the domain without returning NaN
       .domain(d3.extent(countryData, ([country, total]) => total))
       .range([0.5, 1]); // to use only the darker half of the color scale
 
@@ -58,7 +58,6 @@ class Table {
   draw(state) {
     console.log("now I am drawing my table");
 
-    // console.log('d3.selectAll("tr")', d3.selectAll("tr"));
     // update the row to display selected country
     this.tableRows.style("background-color", ([country, value]) =>
       state.selectedCountry === country ? "grey" : this.colorScale(value)

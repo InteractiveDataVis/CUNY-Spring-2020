@@ -1,13 +1,8 @@
 class Graph {
-  // initialize properties here
-  setState;
-  svg;
-  width = 500;
-  height;
+  /* this is run when we create the first "new Graph", so it acts as our init function did */
+  constructor(state, setGlobalState) {
+    console.log("Graph component is loaded...", state);
 
-  init(state, setGlobalState) {
-    // save our global update function to this component so we can use it from within
-    this.setGlobalState = setGlobalState;
     this.svg = d3.select("#chart").append("svg");
   }
 
